@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Ng6DynamicTemplateLoading</title>
@@ -8,7 +9,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
-  <app-root></app-root>
+  <p>First dynamicly compiled component</p>
+  <app-dynamic-compile template="<lib-a-component value='test'></lib-a-component>"></app-dynamic-compile>
+
+  <p>Second dynamicly compiled component</p>
+  <app-dynamic-compile template="<lib-b-component value='123'></lib-b-component>"></app-dynamic-compile>
 </body>
+
 </html>

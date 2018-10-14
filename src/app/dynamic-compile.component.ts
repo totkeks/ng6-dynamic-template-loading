@@ -1,6 +1,6 @@
 import {
   Component, ViewChild, ViewContainerRef, Compiler, Injector, NgModuleRef,
-  AfterViewInit, Input, NgModule, ComponentRef, OnDestroy
+  AfterViewInit, Input, NgModule, ComponentRef, OnDestroy, ElementRef
 } from '@angular/core';
 import { MyComponentLibModule } from 'my-component-lib';
 
@@ -14,15 +14,17 @@ import { MyComponentLibModule } from 'my-component-lib';
 export class DynamicCompileComponent implements AfterViewInit, OnDestroy {
   @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
 
-  @Input() template: string;
-
+  private template: string;
   private componentRef: ComponentRef<any>;
 
   constructor(
     private compiler: Compiler,
     private injector: Injector,
-    private moduleRef: NgModuleRef<any>
-  ) { }
+    private moduleRef: NgModuleRef<any>,
+    private elementRef: ElementRef
+  ) {
+    this.template = this.elementRef.nativeElement.getAttribute('template');
+  }
 
   ngAfterViewInit() {
     this.createComponent();
