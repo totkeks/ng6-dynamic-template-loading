@@ -146,6 +146,41 @@
           }
         }
       }
+    },
+    "my-component-lib": {
+      "root": "projects/my-component-lib",
+      "sourceRoot": "projects/my-component-lib/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/my-component-lib/tsconfig.lib.json",
+            "project": "projects/my-component-lib/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/my-component-lib/src/test.ts",
+            "tsConfig": "projects/my-component-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/my-component-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/my-component-lib/tsconfig.lib.json",
+              "projects/my-component-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ng6-dynamic-template-loading"

@@ -2,13 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { DynamicCompileComponent } from './dynamic-compile.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DynamicCompileComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

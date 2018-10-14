@@ -16,6 +16,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "my-component-lib": [
+        "dist/my-component-lib"
+      ],
+      "my-component-lib/*": [
+        "dist/my-component-lib/*"
+      ]
+    }
   }
 }
